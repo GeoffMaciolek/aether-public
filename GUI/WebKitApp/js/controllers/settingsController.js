@@ -154,7 +154,6 @@ function SettingsController($scope, $rootScope, frameViewStateBroadcast, gateRea
             $rootScope.userProfile.userDetails.userLanguages.push(language)
         }
     }
-    $scope.okButtonDisabled = false
 
     $scope.connectToNode = function() {
         var ipPortElement = angular.element(document.getElementsByClassName('text-entry-ip-port'))[0]
@@ -165,7 +164,6 @@ function SettingsController($scope, $rootScope, frameViewStateBroadcast, gateRea
         console.log('connecttonode is called')
         if (ipText && portText) {
             gateReaderServices.connectToNodeWithIP(ipText, portText)
-            $scope.okButtonDisabled = true
             ipPortElement.value = ''
             ipPortElement.value = ''
 
