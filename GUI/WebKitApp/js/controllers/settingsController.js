@@ -154,20 +154,36 @@ function SettingsController($scope, $rootScope, frameViewStateBroadcast, gateRea
             $rootScope.userProfile.userDetails.userLanguages.push(language)
         }
     }
-    $scope.okButtonDisabled = false
+
+    // Function for connecting to nodes
 
     $scope.connectToNode = function() {
-        var ipText = angular.element(document.getElementsByClassName('text-entry-ip'))[0].value
-        var portText = angular.element(document.getElementsByClassName('text-entry-port'))[0].value
+        // Gets the single element containing all the data
+        var ipPortElement = angular.element(document.getElementsByClassName('text-entry-ip-port'))[0]
+        
+        // Instanciate variables
+        var ipText, portText
 
-        console.log('connecttonode is called')
-        if (ipText && portText) {
-            gateReaderServices.connectToNodeWithIP(ipText, portText)
-            $scope.okButtonDisabled = true
-            angular.element(document.getElementsByClassName('text-entry-ip'))[0].value = ''
-            angular.element(document.getElementsByClassName('text-entry-port'))[0].value = ''
+        // Creates an array with all the ip:ports. Also works if only one
+        var ipPortArray = ipPortElement.value.trim().split(', ')
 
+        for (var index_ipport = 0; index_ipport < ipPortArray.length; index_ipport++) {
+            // Sets the two values from the array[index]
+            ipText = ipPortArray[index_ipport].split(':')[0].trim()
+            portText = ipPortArray[index_ipport].split(':')[1].trim()
+
+            console.log('connecttonode is called')
+
+            // If both of the variables are set
+            if (ipText && portText) {
+                // Connect with parameters using an external function
+                gateReaderServices.connectToNodeWithIP(ipText, portText)
+            }
         }
+
+        // Set the content of the input windows
+        ipPortElement.value = ''
+        ipPortElement.value = ''
     }
 
     // Advanced menu

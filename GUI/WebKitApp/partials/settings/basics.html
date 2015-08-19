@@ -104,25 +104,15 @@
         <tr>
             <td>
                 <div class="defaults-question last-defaults-question">
-                    <span class="question-name">Add a new node</span><span class="question-explanation">If you know a person currently using Aether and is online now, add it here. If you're seeing the spinner on boards screen after a while, you should use this.</span>
+                    <span class="question-name">Add a new node</span><span class="question-explanation">If you know a person currently using Aether and is online now, add it here. If you're seeing the spinner on boards screen after a while, you should use this. A list of working nodes can be found <a href='https://http://rocky-refuge-6432.herokuapp.com/'>here</a>. You can add multiple nodes by separating them with a comma and a space.</span>
                     <div class="textbox-container">
                         <p class="field-name">
-                            IP ADDRESS (Ex: 192.168.0.1)
+                            IP:PORT (E.g. 192.168.0.1:45212) 
                         </p>
-                        <input type="text" class="text-entry text-entry-ip" ng-model="nodeip"
-                        maxlength="22">
-                    </div>
-                    <div class="textbox-container">
-                        <p class="field-name">
-                            PORT (Ex: 45212)
-                        </p>
-                        <input type="text" class="text-entry text-entry-port" ng-model="nodeport"
-                        maxlength="5">
+                        <input type="text" class="text-entry text-entry-ip-port">
                     </div>
                     <div class="settings-ok-button"
-                    ng-click="okButtonDisabled || connectToNode()"
-                    ng-class="{'ok-button-disabled': okButtonDisabled}">CONNECT</div>
-                    <div ng-show="okButtonDisabled">Added. Content will appear in a few minutes.</div>
+                    ng-click="connectToNode()">CONNECT</div>
                 </div>
             </td>
         </tr>

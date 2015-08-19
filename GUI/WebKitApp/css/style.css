@@ -1030,14 +1030,6 @@ img {
   background-color: #DDD;
   -webkit-transition: background-color ease 0.4s, color ease 0.4s, border-color ease 0.4s;
 }
-#second-frame #settings .ok-button-disabled,
-#second-frame #unregistered-user-profile .ok-button-disabled,
-#second-frame #unregistered-user-items-feed .ok-button-disabled {
-  text-decoration: none;
-  background-color: #EEE;
-  border-color: #DDD;
-  color: #CCC;
-}
 #second-frame #settings .question-explanation,
 #second-frame #unregistered-user-profile .question-explanation,
 #second-frame #unregistered-user-items-feed .question-explanation,
